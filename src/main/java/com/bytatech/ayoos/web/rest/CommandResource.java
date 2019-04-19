@@ -36,8 +36,8 @@ import com.bytatech.ayoos.web.rest.util.HeaderUtil;
  * mayabytatech, maya.k.k@lxisoft.com
  */
 @RestController
-@RequestMapping("/api")
-public class HospitalResource {
+@RequestMapping("/api/commands")
+public class CommandResource {
 	
 	  @Autowired
 	    HospitalResourceApi api;
