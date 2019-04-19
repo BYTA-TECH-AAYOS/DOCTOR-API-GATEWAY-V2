@@ -20,12 +20,16 @@ import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bytatech.ayoos.client.doctor.api.HospitalResourceApi;
+import com.bytatech.ayoos.client.doctor.api.*;
+import com.bytatech.ayoos.client.doctor.model.*;
 import com.bytatech.ayoos.client.doctor.model.HospitalDTO;
 import com.bytatech.ayoos.web.rest.errors.BadRequestAlertException;
 import com.bytatech.ayoos.web.rest.util.HeaderUtil;
@@ -41,8 +45,21 @@ public class CommandResource {
 	
 	  @Autowired
 	    HospitalResourceApi api;
+	  @Autowired
+	    DoctorResourceApi doctorApi;
+	  @PostMapping("/doctors")
+	    public void createDoctor(@RequestBody DoctorDTO doctorDTO)  {
+		  doctorApi.createDoctorUsingPOST(doctorDTO);
+	  }
+	  
+	  @PutMapping("/doctors")
+	    public void updateDoctor(@RequestBody DoctorDTO doctorDTO)  {
+		  doctorApi.updateDoctorUsingPUT(doctorDTO);
+	  }    
+	  
+	 
 	
-	 @PostMapping("/hospitals")
+	/* @PostMapping("/hospitals")
 	    public ResponseEntity<HospitalDTO> createHospital(@RequestBody HospitalDTO hospitalDTO) throws URISyntaxException {
 	       
 	        if (hospitalDTO.getId() != null) {
@@ -53,5 +70,5 @@ public class CommandResource {
 	        return ResponseEntity.created(new URI("/api/hospitals/" + result.getId()))
 	            .headers(HeaderUtil.createEntityCreationAlert("hospital", result.getId().toString()))
 	            .body(result);
-	    }
+	    }*/
 }

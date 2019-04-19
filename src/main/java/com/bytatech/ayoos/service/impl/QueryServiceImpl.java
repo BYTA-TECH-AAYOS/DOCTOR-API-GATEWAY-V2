@@ -1,6 +1,7 @@
 package com.bytatech.ayoos.service.impl;
 
 import static org.elasticsearch.index.query.QueryBuilders.matchAllQuery;
+import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 
 import java.util.ArrayList;
@@ -16,8 +17,9 @@ import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.data.elasticsearch.core.query.StringQuery;
 import org.springframework.stereotype.Service;
 
-import com.bytatech.ayoos.client.doctor.domain.Doctor;
+import com.bytatech.ayoos.client.doctor.domain.*;
 import com.bytatech.ayoos.service.QueryService;
+
 import com.github.vanroy.springdata.jest.JestElasticsearchTemplate;
 import com.github.vanroy.springdata.jest.mapper.JestResultsExtractor;
 
@@ -40,10 +42,26 @@ public class QueryServiceImpl implements QueryService {
 
 	@Override
 	public Doctor findDoctor(String searchTerm,Pageable pageable) {
-		SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(termQuery("doctorId", searchTerm)).build();
-
+		
 		StringQuery stringQuery = new StringQuery(termQuery("doctorId", searchTerm).toString());
 		return elasticsearchOperations.queryForObject(stringQuery, Doctor.class);
+	}
+
+	@Override
+	public Page<Review> findAllReview(String searchTerm, Pageable pageable) {
+		SearchQuery searchQuery = new NativeSearchQueryBuilder()
+				  .withQuery(termQuery("doctorId", searchTerm))
+				  .build();
+
+		return elasticsearchOperations.queryForPage(searchQuery, Review.class);
+
+	
+	}
+
+	@Override
+	public Ratting findRating(String searchTerm) {
+		StringQuery stringQuery = new StringQuery(termQuery("doctorId", searchTerm).toString());
+		return elasticsearchOperations.queryForObject(stringQuery, Ratting.class);
 	}
 	
 	
