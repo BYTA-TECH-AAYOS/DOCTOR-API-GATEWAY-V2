@@ -13,14 +13,14 @@ import javax.validation.constraints.*;
  * ReplyDTO
  */
 @Validated
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-19T13:49:55.061+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-19T21:12:08.931+05:30[Asia/Calcutta]")
 
 public class ReplyDTO   {
   @JsonProperty("id")
   private Long id = null;
 
-  @JsonProperty("replay")
-  private String replay = null;
+  @JsonProperty("reply")
+  private String reply = null;
 
   @JsonProperty("reviewId")
   private Long reviewId = null;
@@ -45,24 +45,24 @@ public class ReplyDTO   {
     this.id = id;
   }
 
-  public ReplyDTO replay(String replay) {
-    this.replay = replay;
+  public ReplyDTO reply(String reply) {
+    this.reply = reply;
     return this;
   }
 
   /**
-   * Get replay
-   * @return replay
+   * Get reply
+   * @return reply
   **/
   @ApiModelProperty(value = "")
 
 
-  public String getReplay() {
-    return replay;
+  public String getReply() {
+    return reply;
   }
 
-  public void setReplay(String replay) {
-    this.replay = replay;
+  public void setReply(String reply) {
+    this.reply = reply;
   }
 
   public ReplyDTO reviewId(Long reviewId) {
@@ -96,13 +96,13 @@ public class ReplyDTO   {
     }
     ReplyDTO replyDTO = (ReplyDTO) o;
     return Objects.equals(this.id, replyDTO.id) &&
-        Objects.equals(this.replay, replyDTO.replay) &&
+        Objects.equals(this.reply, replyDTO.reply) &&
         Objects.equals(this.reviewId, replyDTO.reviewId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, replay, reviewId);
+    return Objects.hash(id, reply, reviewId);
   }
 
   @Override
@@ -111,7 +111,7 @@ public class ReplyDTO   {
     sb.append("class ReplyDTO {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    replay: ").append(toIndentedString(replay)).append("\n");
+    sb.append("    reply: ").append(toIndentedString(reply)).append("\n");
     sb.append("    reviewId: ").append(toIndentedString(reviewId)).append("\n");
     sb.append("}");
     return sb.toString();

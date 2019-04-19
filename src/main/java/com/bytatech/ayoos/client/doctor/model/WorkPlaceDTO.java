@@ -10,22 +10,45 @@ import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
- * ReviewDTO
+ * WorkPlaceDTO
  */
 @Validated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-19T21:12:08.931+05:30[Asia/Calcutta]")
 
-public class ReviewDTO   {
+public class WorkPlaceDTO   {
+  @JsonProperty("doctorId")
+  private Long doctorId = null;
+
   @JsonProperty("id")
   private Long id = null;
 
-  @JsonProperty("review")
-  private String review = null;
+  @JsonProperty("location")
+  private String location = null;
 
-  @JsonProperty("userRatingId")
-  private Long userRatingId = null;
+  @JsonProperty("name")
+  private String name = null;
 
-  public ReviewDTO id(Long id) {
+  public WorkPlaceDTO doctorId(Long doctorId) {
+    this.doctorId = doctorId;
+    return this;
+  }
+
+  /**
+   * Get doctorId
+   * @return doctorId
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public Long getDoctorId() {
+    return doctorId;
+  }
+
+  public void setDoctorId(Long doctorId) {
+    this.doctorId = doctorId;
+  }
+
+  public WorkPlaceDTO id(Long id) {
     this.id = id;
     return this;
   }
@@ -45,44 +68,44 @@ public class ReviewDTO   {
     this.id = id;
   }
 
-  public ReviewDTO review(String review) {
-    this.review = review;
+  public WorkPlaceDTO location(String location) {
+    this.location = location;
     return this;
   }
 
   /**
-   * Get review
-   * @return review
+   * Get location
+   * @return location
   **/
   @ApiModelProperty(value = "")
 
 
-  public String getReview() {
-    return review;
+  public String getLocation() {
+    return location;
   }
 
-  public void setReview(String review) {
-    this.review = review;
+  public void setLocation(String location) {
+    this.location = location;
   }
 
-  public ReviewDTO userRatingId(Long userRatingId) {
-    this.userRatingId = userRatingId;
+  public WorkPlaceDTO name(String name) {
+    this.name = name;
     return this;
   }
 
   /**
-   * Get userRatingId
-   * @return userRatingId
+   * Get name
+   * @return name
   **/
   @ApiModelProperty(value = "")
 
 
-  public Long getUserRatingId() {
-    return userRatingId;
+  public String getName() {
+    return name;
   }
 
-  public void setUserRatingId(Long userRatingId) {
-    this.userRatingId = userRatingId;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -94,25 +117,27 @@ public class ReviewDTO   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReviewDTO reviewDTO = (ReviewDTO) o;
-    return Objects.equals(this.id, reviewDTO.id) &&
-        Objects.equals(this.review, reviewDTO.review) &&
-        Objects.equals(this.userRatingId, reviewDTO.userRatingId);
+    WorkPlaceDTO workPlaceDTO = (WorkPlaceDTO) o;
+    return Objects.equals(this.doctorId, workPlaceDTO.doctorId) &&
+        Objects.equals(this.id, workPlaceDTO.id) &&
+        Objects.equals(this.location, workPlaceDTO.location) &&
+        Objects.equals(this.name, workPlaceDTO.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, review, userRatingId);
+    return Objects.hash(doctorId, id, location, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReviewDTO {\n");
+    sb.append("class WorkPlaceDTO {\n");
     
+    sb.append("    doctorId: ").append(toIndentedString(doctorId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    review: ").append(toIndentedString(review)).append("\n");
-    sb.append("    userRatingId: ").append(toIndentedString(userRatingId)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

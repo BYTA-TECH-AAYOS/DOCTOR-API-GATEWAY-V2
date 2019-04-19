@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
  * DoctorDTO
  */
 @Validated
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-19T13:49:55.061+05:30[Asia/Kolkata]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-19T21:12:08.931+05:30[Asia/Calcutta]")
 
 public class DoctorDTO   {
   @JsonProperty("contactInfoId")
@@ -35,14 +35,14 @@ public class DoctorDTO   {
   @JsonProperty("practiceSince")
   private OffsetDateTime practiceSince = null;
 
-  @JsonProperty("rattingId")
-  private Long rattingId = null;
-
   @JsonProperty("registerNumber")
   private String registerNumber = null;
 
   @JsonProperty("specialization")
   private String specialization = null;
+
+  @JsonProperty("totalRating")
+  private Double totalRating = null;
 
   public DoctorDTO contactInfoId(Long contactInfoId) {
     this.contactInfoId = contactInfoId;
@@ -165,26 +165,6 @@ public class DoctorDTO   {
     this.practiceSince = practiceSince;
   }
 
-  public DoctorDTO rattingId(Long rattingId) {
-    this.rattingId = rattingId;
-    return this;
-  }
-
-  /**
-   * Get rattingId
-   * @return rattingId
-  **/
-  @ApiModelProperty(value = "")
-
-
-  public Long getRattingId() {
-    return rattingId;
-  }
-
-  public void setRattingId(Long rattingId) {
-    this.rattingId = rattingId;
-  }
-
   public DoctorDTO registerNumber(String registerNumber) {
     this.registerNumber = registerNumber;
     return this;
@@ -225,6 +205,26 @@ public class DoctorDTO   {
     this.specialization = specialization;
   }
 
+  public DoctorDTO totalRating(Double totalRating) {
+    this.totalRating = totalRating;
+    return this;
+  }
+
+  /**
+   * Get totalRating
+   * @return totalRating
+  **/
+  @ApiModelProperty(value = "")
+
+
+  public Double getTotalRating() {
+    return totalRating;
+  }
+
+  public void setTotalRating(Double totalRating) {
+    this.totalRating = totalRating;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -241,14 +241,14 @@ public class DoctorDTO   {
         Objects.equals(this.image, doctorDTO.image) &&
         Objects.equals(this.imageContentType, doctorDTO.imageContentType) &&
         Objects.equals(this.practiceSince, doctorDTO.practiceSince) &&
-        Objects.equals(this.rattingId, doctorDTO.rattingId) &&
         Objects.equals(this.registerNumber, doctorDTO.registerNumber) &&
-        Objects.equals(this.specialization, doctorDTO.specialization);
+        Objects.equals(this.specialization, doctorDTO.specialization) &&
+        Objects.equals(this.totalRating, doctorDTO.totalRating);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactInfoId, doctorId, id, image, imageContentType, practiceSince, rattingId, registerNumber, specialization);
+    return Objects.hash(contactInfoId, doctorId, id, image, imageContentType, practiceSince, registerNumber, specialization, totalRating);
   }
 
   @Override
@@ -262,9 +262,9 @@ public class DoctorDTO   {
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    imageContentType: ").append(toIndentedString(imageContentType)).append("\n");
     sb.append("    practiceSince: ").append(toIndentedString(practiceSince)).append("\n");
-    sb.append("    rattingId: ").append(toIndentedString(rattingId)).append("\n");
     sb.append("    registerNumber: ").append(toIndentedString(registerNumber)).append("\n");
     sb.append("    specialization: ").append(toIndentedString(specialization)).append("\n");
+    sb.append("    totalRating: ").append(toIndentedString(totalRating)).append("\n");
     sb.append("}");
     return sb.toString();
   }
