@@ -43,8 +43,7 @@ import com.bytatech.ayoos.web.rest.util.HeaderUtil;
 @RequestMapping("/api/commands")
 public class CommandResource {
 	
-	  @Autowired
-	    HospitalResourceApi api;
+	 
 	  @Autowired
 	    DoctorResourceApi doctorApi;
 	  @PostMapping("/doctors")
