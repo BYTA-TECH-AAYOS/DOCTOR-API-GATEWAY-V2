@@ -29,9 +29,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bytatech.ayoos.client.doctor.api.HospitalResourceApi;
 import com.bytatech.ayoos.client.doctor.domain.*;
-import com.bytatech.ayoos.client.doctor.model.HospitalDTO;
 import com.bytatech.ayoos.service.QueryService;
 import com.bytatech.ayoos.web.rest.errors.BadRequestAlertException;
 import com.bytatech.ayoos.web.rest.util.HeaderUtil;

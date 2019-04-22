@@ -58,16 +58,5 @@ public class CommandResource {
 	  
 	 
 	
-	/* @PostMapping("/hospitals")
-	    public ResponseEntity<HospitalDTO> createHospital(@RequestBody HospitalDTO hospitalDTO) throws URISyntaxException {
-	       
-	        if (hospitalDTO.getId() != null) {
-	            throw new BadRequestAlertException("A new hospital cannot already have an ID", "hospital", "idexists");
-	        }
-	        ResponseEntity<HospitalDTO> hospitalEntity = api.createHospitalUsingPOST(hospitalDTO);
-	        HospitalDTO result=  hospitalEntity.getBody();
-	        return ResponseEntity.created(new URI("/api/hospitals/" + result.getId()))
-	            .headers(HeaderUtil.createEntityCreationAlert("hospital", result.getId().toString()))
-	            .body(result);
-	    }*/
+	
 }

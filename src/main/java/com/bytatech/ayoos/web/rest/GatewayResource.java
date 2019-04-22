@@ -16,8 +16,7 @@ import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
 import org.springframework.http.*;
 import org.springframework.security.access.annotation.Secured;
 
-import com.bytatech.ayoos.client.doctor.api.HospitalResourceApi;
-import com.bytatech.ayoos.client.doctor.model.HospitalDTO;
+
 import com.bytatech.ayoos.security.AuthoritiesConstants;
 import org.springframework.web.bind.annotation.*;
 
