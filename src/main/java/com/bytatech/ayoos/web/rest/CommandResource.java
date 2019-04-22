@@ -43,12 +43,17 @@ import com.bytatech.ayoos.web.rest.util.HeaderUtil;
 @RequestMapping("/api/commands")
 public class CommandResource {
 	
+	 @PostMapping("/doc")
+	public String test() {
+		return "success";
+	}
 	 
 	  @Autowired
 	    DoctorResourceApi doctorApi;
 	  @PostMapping("/doctors")
-	    public void createDoctor(@RequestBody DoctorDTO doctorDTO)  {
-		  doctorApi.createDoctorUsingPOST(doctorDTO);
+	    public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO) throws URISyntaxException {
+		  
+		  return  doctorApi.createDoctorUsingPOST(doctorDTO);
 	  }
 	  
 	  @PutMapping("/doctors")
