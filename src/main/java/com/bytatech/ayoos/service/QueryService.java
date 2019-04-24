@@ -11,8 +11,7 @@ public interface QueryService {
 
 	Doctor findDoctor(String searchTerm, Pageable pageable);
 
-	Page<Review> findAllReview(String searchTerm, Pageable pageable);
+	Page<Review> findAllReview(Pageable pageable);
 
-	Ratting findRating(String searchTerm);
 
 }

@@ -15,22 +15,25 @@ import java.util.Objects;
 /**
  * A Review.
  */
-
+@Entity
+@Table(name = "review")
 @Document(indexName = "review")
 public class Review implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-   
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-   
+    @Column(name = "review")
     private String review;
 
-    
-    private Ratting ratting;
+    @ManyToOne
+    @JsonIgnoreProperties("reviews")
+    private UserRating userRating;
 
-   
+    @OneToMany(mappedBy = "review")
     private Set<Reply> replies = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -54,17 +57,17 @@ public class Review implements Serializable {
         this.review = review;
     }
 
-    public Ratting getRatting() {
-        return ratting;
+    public UserRating getUserRating() {
+        return userRating;
     }
 
-    public Review ratting(Ratting ratting) {
-        this.ratting = ratting;
+    public Review userRating(UserRating userRating) {
+        this.userRating = userRating;
         return this;
     }
 
-    public void setRatting(Ratting ratting) {
-        this.ratting = ratting;
+    public void setUserRating(UserRating userRating) {
+        this.userRating = userRating;
     }
 
     public Set<Reply> getReplies() {

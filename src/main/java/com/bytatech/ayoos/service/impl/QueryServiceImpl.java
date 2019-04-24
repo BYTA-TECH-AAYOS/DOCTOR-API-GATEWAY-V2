@@ -48,9 +48,9 @@ public class QueryServiceImpl implements QueryService {
 	}
 
 	@Override
-	public Page<Review> findAllReview(String searchTerm, Pageable pageable) {
+	public Page<Review> findAllReview(Pageable pageable) {
 		SearchQuery searchQuery = new NativeSearchQueryBuilder()
-				  .withQuery(termQuery("doctorId", searchTerm))
+				  .withQuery(matchAllQuery())
 				  .build();
 
 		return elasticsearchOperations.queryForPage(searchQuery, Review.class);
@@ -58,12 +58,6 @@ public class QueryServiceImpl implements QueryService {
 	
 	}
 
-	@Override
-	public Ratting findRating(String searchTerm) {
-		StringQuery stringQuery = new StringQuery(termQuery("doctorId", searchTerm).toString());
-		return elasticsearchOperations.queryForObject(stringQuery, Ratting.class);
-	}
-	
 	
 	
 	

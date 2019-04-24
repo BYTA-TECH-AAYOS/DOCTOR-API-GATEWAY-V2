@@ -2,7 +2,6 @@ package com.bytatech.ayoos.client.doctor.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -21,38 +20,40 @@ import java.util.Objects;
 public class Doctor implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    
+
     private Long id;
 
     @Lob
-   
+  
     private byte[] image;
 
+    
     private String imageContentType;
 
-   
+
     private String doctorId;
 
-    
+ 
     private String specialization;
 
-  
+
     private String registerNumber;
 
-   
+  
     private ZonedDateTime practiceSince;
 
-   
+
+    private Double totalRating;
+
+  
     private ContactInfo contactInfo;
 
-    
-    private Set<Hospital> hospitals = new HashSet<>();
-  
-    private Set<Qualification> qualifications = new HashSet<>();
-   
-    private Ratting ratting;
 
+    private Set<UserRating> userRatings = new HashSet<>();
+
+    private Set<WorkPlace> workPlaces = new HashSet<>();
+
+    private Set<Qualification> qualifications = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -140,6 +141,19 @@ public class Doctor implements Serializable {
         this.practiceSince = practiceSince;
     }
 
+    public Double getTotalRating() {
+        return totalRating;
+    }
+
+    public Doctor totalRating(Double totalRating) {
+        this.totalRating = totalRating;
+        return this;
+    }
+
+    public void setTotalRating(Double totalRating) {
+        this.totalRating = totalRating;
+    }
+
     public ContactInfo getContactInfo() {
         return contactInfo;
     }
@@ -153,29 +167,54 @@ public class Doctor implements Serializable {
         this.contactInfo = contactInfo;
     }
 
-    public Set<Hospital> getHospitals() {
-        return hospitals;
+    public Set<UserRating> getUserRatings() {
+        return userRatings;
     }
 
-    public Doctor hospitals(Set<Hospital> hospitals) {
-        this.hospitals = hospitals;
+    public Doctor userRatings(Set<UserRating> userRatings) {
+        this.userRatings = userRatings;
         return this;
     }
 
-    public Doctor addHospital(Hospital hospital) {
-        this.hospitals.add(hospital);
-        hospital.setDoctor(this);
+    public Doctor addUserRating(UserRating userRating) {
+        this.userRatings.add(userRating);
+        userRating.setDoctor(this);
         return this;
     }
 
-    public Doctor removeHospital(Hospital hospital) {
-        this.hospitals.remove(hospital);
-        hospital.setDoctor(null);
+    public Doctor removeUserRating(UserRating userRating) {
+        this.userRatings.remove(userRating);
+        userRating.setDoctor(null);
         return this;
     }
 
-    public void setHospitals(Set<Hospital> hospitals) {
-        this.hospitals = hospitals;
+    public void setUserRatings(Set<UserRating> userRatings) {
+        this.userRatings = userRatings;
+    }
+
+    public Set<WorkPlace> getWorkPlaces() {
+        return workPlaces;
+    }
+
+    public Doctor workPlaces(Set<WorkPlace> workPlaces) {
+        this.workPlaces = workPlaces;
+        return this;
+    }
+
+    public Doctor addWorkPlace(WorkPlace workPlace) {
+        this.workPlaces.add(workPlace);
+        workPlace.setDoctor(this);
+        return this;
+    }
+
+    public Doctor removeWorkPlace(WorkPlace workPlace) {
+        this.workPlaces.remove(workPlace);
+        workPlace.setDoctor(null);
+        return this;
+    }
+
+    public void setWorkPlaces(Set<WorkPlace> workPlaces) {
+        this.workPlaces = workPlaces;
     }
 
     public Set<Qualification> getQualifications() {
@@ -201,19 +240,6 @@ public class Doctor implements Serializable {
 
     public void setQualifications(Set<Qualification> qualifications) {
         this.qualifications = qualifications;
-    }
-
-    public Ratting getRatting() {
-        return ratting;
-    }
-
-    public Doctor ratting(Ratting ratting) {
-        this.ratting = ratting;
-        return this;
-    }
-
-    public void setRatting(Ratting ratting) {
-        this.ratting = ratting;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -247,6 +273,7 @@ public class Doctor implements Serializable {
             ", specialization='" + getSpecialization() + "'" +
             ", registerNumber='" + getRegisterNumber() + "'" +
             ", practiceSince='" + getPracticeSince() + "'" +
+            ", totalRating=" + getTotalRating() +
             "}";
     }
 }

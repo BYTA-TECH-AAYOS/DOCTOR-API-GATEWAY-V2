@@ -51,16 +51,11 @@ public class QueryResource {
 	}
 
 	
-	/*  @GetMapping("/rating/{searchTerm}") 
-	  public Ratting findRating(@PathVariable String searchTerm) 
-	  {
-		  return queryService.findRating(searchTerm); 
-	  }
-	 
+	
 
-	@GetMapping("/review/{searchTerm}")
-	public Page<Review> findAllReview(@PathVariable String searchTerm, Pageable pageable) {
-		return queryService.findAllReview(searchTerm, pageable);
-	} */
+	@GetMapping("/review")
+	public Page<Review> findAllReview(/*@PathVariable String searchTerm,*/ Pageable pageable) {
+		return queryService.findAllReview( pageable);
+	} 
 
 }

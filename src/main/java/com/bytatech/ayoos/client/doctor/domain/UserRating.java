@@ -2,34 +2,39 @@ package com.bytatech.ayoos.client.doctor.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
 
 /**
- * A Ratting.
+ * A UserRating.
  */
 
-@Document(indexName = "ratting")
-public class Ratting implements Serializable {
+@Document(indexName = "userrating")
+public class UserRating implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    
+
     private Long id;
 
-   
     private String userName;
 
- 
-    private Double ratting;
+    private Double rating;
 
-   
+    private ZonedDateTime ratedOn;
+
+ 
+    private Doctor doctor;
+
+  
     private Set<Review> reviews = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -44,7 +49,7 @@ public class Ratting implements Serializable {
         return userName;
     }
 
-    public Ratting userName(String userName) {
+    public UserRating userName(String userName) {
         this.userName = userName;
         return this;
     }
@@ -53,37 +58,63 @@ public class Ratting implements Serializable {
         this.userName = userName;
     }
 
-    public Double getRatting() {
-        return ratting;
+    public Double getRating() {
+        return rating;
     }
 
-    public Ratting ratting(Double ratting) {
-        this.ratting = ratting;
+    public UserRating rating(Double rating) {
+        this.rating = rating;
         return this;
     }
 
-    public void setRatting(Double ratting) {
-        this.ratting = ratting;
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public ZonedDateTime getRatedOn() {
+        return ratedOn;
+    }
+
+    public UserRating ratedOn(ZonedDateTime ratedOn) {
+        this.ratedOn = ratedOn;
+        return this;
+    }
+
+    public void setRatedOn(ZonedDateTime ratedOn) {
+        this.ratedOn = ratedOn;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public UserRating doctor(Doctor doctor) {
+        this.doctor = doctor;
+        return this;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public Set<Review> getReviews() {
         return reviews;
     }
 
-    public Ratting reviews(Set<Review> reviews) {
+    public UserRating reviews(Set<Review> reviews) {
         this.reviews = reviews;
         return this;
     }
 
-    public Ratting addReview(Review review) {
+    public UserRating addReview(Review review) {
         this.reviews.add(review);
-        review.setRatting(this);
+        review.setUserRating(this);
         return this;
     }
 
-    public Ratting removeReview(Review review) {
+    public UserRating removeReview(Review review) {
         this.reviews.remove(review);
-        review.setRatting(null);
+        review.setUserRating(null);
         return this;
     }
 
@@ -100,11 +131,11 @@ public class Ratting implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Ratting ratting = (Ratting) o;
-        if (ratting.getId() == null || getId() == null) {
+        UserRating userRating = (UserRating) o;
+        if (userRating.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), ratting.getId());
+        return Objects.equals(getId(), userRating.getId());
     }
 
     @Override
@@ -114,10 +145,11 @@ public class Ratting implements Serializable {
 
     @Override
     public String toString() {
-        return "Ratting{" +
+        return "UserRating{" +
             "id=" + getId() +
             ", userName='" + getUserName() + "'" +
-            ", ratting=" + getRatting() +
+            ", rating=" + getRating() +
+            ", ratedOn='" + getRatedOn() + "'" +
             "}";
     }
 }

@@ -1,5 +1,5 @@
-package com.bytatech.ayoos.client.doctor.domain;
 
+package com.bytatech.ayoos.client.doctor.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -12,25 +12,23 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A Hospital.
+ * A WorkPlace.
  */
 
-@Document(indexName = "hospital")
-public class Hospital implements Serializable {
+@Document(indexName = "workplace")
+public class WorkPlace implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
-    
+
     private Long id;
 
-   
     private String name;
 
     @GeoPointField
    
     private String location;
 
-    
+
     private Doctor doctor;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -46,7 +44,7 @@ public class Hospital implements Serializable {
         return name;
     }
 
-    public Hospital name(String name) {
+    public WorkPlace name(String name) {
         this.name = name;
         return this;
     }
@@ -59,7 +57,7 @@ public class Hospital implements Serializable {
         return location;
     }
 
-    public Hospital location(String location) {
+    public WorkPlace location(String location) {
         this.location = location;
         return this;
     }
@@ -72,7 +70,7 @@ public class Hospital implements Serializable {
         return doctor;
     }
 
-    public Hospital doctor(Doctor doctor) {
+    public WorkPlace doctor(Doctor doctor) {
         this.doctor = doctor;
         return this;
     }
@@ -90,11 +88,11 @@ public class Hospital implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Hospital hospital = (Hospital) o;
-        if (hospital.getId() == null || getId() == null) {
+        WorkPlace workPlace = (WorkPlace) o;
+        if (workPlace.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), hospital.getId());
+        return Objects.equals(getId(), workPlace.getId());
     }
 
     @Override
@@ -104,7 +102,7 @@ public class Hospital implements Serializable {
 
     @Override
     public String toString() {
-        return "Hospital{" +
+        return "WorkPlace{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", location='" + getLocation() + "'" +
