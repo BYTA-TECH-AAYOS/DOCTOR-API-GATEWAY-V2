@@ -15,25 +15,21 @@ import java.util.Objects;
 /**
  * A Review.
  */
-@Entity
-@Table(name = "review")
+
 @Document(indexName = "review")
 public class Review implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
-    @Column(name = "review")
+
     private String review;
 
-    @ManyToOne
-    @JsonIgnoreProperties("reviews")
+  
     private UserRating userRating;
 
-    @OneToMany(mappedBy = "review")
     private Set<Reply> replies = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
